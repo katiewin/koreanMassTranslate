@@ -1,0 +1,34 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&family=Inika:wght@400;700&family=Judson:wght@400;700&family=Libre+Franklin:wght@300;400;700&display=swap" rel="stylesheet">
+
+        <title>Korean Text Convertor</title>
+    </head>
+    <body>
+    <script src="{% static 'javascript/script.js' %}"></script>
+    
+        <h1>
+            Korean Text Convertor
+        </h1>
+
+        <p>
+             This translator was creates using the NLP KoNLPy and a dictionary from an open source Korean dictionary.
+        </p>
+
+        <section>
+            <h3>Enter Text:</h3>
+            <form id="myForm" action="{% url 'process_text' %}" method="post">
+                {% csrf_token %}
+                <textarea name="inputText" cols="40" rows="20" id="enterTxt"></textarea>
+                <button onclick="submitForm()">TRANSLATE</button>
+            </form>
+        </section>
+
+
+    </body>
+</html>
