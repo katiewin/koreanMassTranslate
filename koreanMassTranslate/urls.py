@@ -1,28 +1,21 @@
-"""
-URL configuration for koreanMassTranslate project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from translate import views as translate_views  # Alias the translate views
+from translate import views as translate_views
 from homePage import views as home_page_views 
+from translate.views.text_processor import TextProcessor
+from translate.views.translator import EnglishToKorean
+from translate.views.word_views import Views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home_page_views.home),
-    path('', translate_views.translate),
-     path('process-text/', translate_views.process_text, name='process_text'),
-    
+    path('process-text/', EnglishToKorean.as_view(), name='process_text'),
+    path('translate/', TextProcessor.as_view(), name='translate'),
+    path('view-words/', Views.as_view(), name='view_words'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
