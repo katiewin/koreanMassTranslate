@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/form.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&family=Inika:wght@400;700&family=Judson:wght@400;700&family=Kumbh+Sans:wght@400;500;700&family=Libre+Franklin:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <title>Word List</title>
+</head>
+<body>
+    
+
+
+<form>
+    <h1> Add New Word</h1>
+    <label for="k_word">Korean Word:</label><br>
+    <input type="text" id="k_word" name="k_word" required><br>
+    <label for="epos">Part of Speech:</label><br>
+    <input type="text" id="epos" name="epos"><br>
+    <label for="e_translation">Translation:</label><br>
+    <input type="text" id="e_translation" name="e_translation"><br>
+    <label for="e_sentence">Explanation:</label><br>
+    <input type="text" id="e_sentence" name="e_sentence">
+    <button input type="submit">Submit</button>
+</form>
+</body>
+</html>

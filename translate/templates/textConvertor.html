@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/converter.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&family=Inika:wght@400;700&family=Judson:wght@400;700&family=Kumbh+Sans:wght@400;500;700&family=Libre+Franklin:wght@300;400;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
         </p>
 
         <section>
-            <h3>Enter Text:</h3>
+            <h2>Enter Text:</h2>
             <form id="myForm" action="{% url 'process_text' %}" method="post">
                 {% csrf_token %}
                 <textarea name="inputText" cols="20" rows="10" id="enterTxt">이명함은 디자인이 인상적이서좋다.</textarea>

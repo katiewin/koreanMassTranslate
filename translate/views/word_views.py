@@ -10,3 +10,5 @@ class Views(View):
 
     def post(self, request):
         return HttpResponseNotAllowed(['GET'])
+
+
